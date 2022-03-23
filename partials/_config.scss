@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@300;400;500;600&display=swap');
+@import url("https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css");
+
+*{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    list-style: none;
+    text-decoration: none;
+    box-sizing: border-box;
+}
+
+$primary-color: #ffb400;
+$primary-color-variant: #ffc107;
+$secondary-color: #323232;
+$white-color: #fff;
+$light-color: rgba($white-color, 0.7);
+$black-color: #000;
+$dark-color: rgba($black-color, 0.7);
+
+$container-lg: 82%;
+$container-md: 90%;
+
+$lines-to-show: 3;
+
