@@ -2,7 +2,7 @@ body{
     font-family: 'Source Code Pro';
     line-height: 1.7;
     color: $white-color;
-    background: $primary-color-variant;
+    background: $dark-color;
 }
 
 .container{
@@ -32,13 +32,40 @@ img{
 }
 
 section{
-    height: 100vh;
+    height: 0;
+    opacity: 0;
+    visibility: hidden;
+    overflow: hidden;
+    transition: all 500ms ease;
 
-    h2{
-        font-size: 2.4rem;
-        margin-bottom: 1.5rem;
+    &.active{
+        height: 100vh;
+        opacity: 1;
+        visibility: visible;
+        overflow-y: scroll;
+        transition: all 800ms ease-in-out;
     }
 }
+
+/* width */
+::-webkit-scrollbar {
+    width: 5px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: $secondary-color;
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: $dark-color;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: $dark-color;
+  }
 
 @keyframes bounceY {
     0%{
@@ -65,8 +92,11 @@ section{
 @media screen and (max-width: 768px) {
 
     section{
-        padding: 2rem 0 100px 0;
+        padding: 0;
         overflow-y: scroll;
+        &.active{
+            padding: 2rem 0 100px 0;
+        }
     }
     .container{
 
