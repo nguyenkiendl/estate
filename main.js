@@ -248,7 +248,7 @@ const pflio = (function () {
                     popup.classList.add('show');
 
                 }
-                const closeItem = event.target.closest('.popup__close');
+                const closeItem = event.target.closest('.popup__close') || event.target.closest('.nav__items');
                 if (closeItem || event.target === popup) {
                     popup.classList.remove('show');
                 }
@@ -262,9 +262,13 @@ const pflio = (function () {
                             <h2>My <strong>Blog</strong></h2>
                             <span style="color: #585858">Posts</span>
                         </div>
-                        <span class="blog__tags">${blog.tags}</span>
-                        <h3>${blog.title}</h3>
-                        <div class="blog__thumbnail">
+                        <div class="blog__meta">
+                            <span class="blog__user"><i class="fi fi-rr-user"></i> ${blog.user}</span>
+                            <span class="blog__time"><i class="fi fi-rr-calendar"></i> ${blog.time}</span>
+                            <span class="blog__tags"><i class="fi fi-rr-bookmark"></i> ${blog.tags}</span>
+                        </div>
+                        <h3 class="popup__title">${blog.title}</h3>
+                        <div class="popup__image">
                             <img src="${blog.thumbnail}" alt="project-image">
                         </div>
                         <p>${blog.content}</p>
