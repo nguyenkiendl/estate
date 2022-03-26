@@ -141,6 +141,7 @@ const pflio = (function () {
     const figure = $('.portfolio__items figure'),
         popup = $('.popup'),
         close = $('.popup__close'),
+        popup__contents = $('.popup__contents'),
         popup__title = $('.popup__title'),
         popup__project = $('.popup__project'),
         popup__client = $('.popup__client'),
@@ -213,22 +214,63 @@ const pflio = (function () {
 
             document.addEventListener('click', function (event) {
                 event.preventDefault();
+                //portfolio show/hide popup
                 const item = event.target.closest('.portfolio__item');
                 if (item) {
                     let portfolio = JSON.parse(item.dataset.portfolio);
+                    const portfolioHTML = `
+                        <h3 class="popup__title">${portfolio.title}</h3>
+                        <div class="popup__info">
+                            <div class="popup__item">
+                                <i class="fi fi-rr-document-signed"></i>
+                                <span>Project: <strong class="popup__project">${portfolio.project}</strong></span>
+                            </div>
+                            <div class="popup__item">
+                                <i class="fi fi-rr-document-signed"></i>
+                                <span>Client: <strong class="popup__client">${portfolio.client}</strong></span>
+                            </div>
+                            <div class="popup__item">
+                                <i class="fi fi-rr-document-signed"></i>
+                                <span>Languages: <strong class="popup__languages">${portfolio.languages}</strong></span>
+                            </div>
+                            <div class="popup__item">
+                                <i class="fi fi-rr-document-signed"></i>
+                                <span>Preview: <strong>
+                                        <a href="${portfolio.link}" class="popup__link" target="_blank"><span class="popup__preview">${portfolio.preview}</span></a>
+                                    </strong></span>
+                            </div>
+                        </div>
+                        <div class="popup__image">
+                            <img src="${portfolio.src}" alt="project-image">
+                        </div>
+                    `;
+                    popup__contents.innerHTML = portfolioHTML;
                     popup.classList.add('show');
-                    popup__title.innerHTML = portfolio.title;
 
-                    popup__project.innerHTML = portfolio.project;
-                    popup__client.innerHTML = portfolio.client;
-                    popup__languages.innerHTML = portfolio.languages;
-                    popup__preview.innerHTML = portfolio.preview;
-                    popup__link.href = portfolio.link;
-                    popup__image.src = portfolio.src;
                 }
                 const closeItem = event.target.closest('.popup__close');
                 if (closeItem || event.target === popup) {
                     popup.classList.remove('show');
+                }
+
+                // blog show/hide popup
+                const post = event.target.closest('.blog__post');
+                if (post) {
+                    let blog = JSON.parse(post.dataset.blog);
+                    const blogHTML = `
+                        <div class="title">
+                            <h2>My <strong>Blog</strong></h2>
+                            <span style="color: #585858">Posts</span>
+                        </div>
+                        <span class="blog__tags">${blog.tags}</span>
+                        <h3>${blog.title}</h3>
+                        <div class="blog__thumbnail">
+                            <img src="${blog.thumbnail}" alt="project-image">
+                        </div>
+                        <p>${blog.content}</p>
+                    `;
+                    popup__contents.innerHTML = blogHTML;
+                    popup.classList.add('show');
                 }
             })
 

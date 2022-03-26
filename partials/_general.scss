@@ -24,6 +24,7 @@ p{
 }
 
 img{
+    display: block;
     max-width: 100%;
 }
 
@@ -85,6 +86,86 @@ section{
     }
 }
 
+// popup
+
+.popup{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: $dark-color;
+    z-index: 10;
+    //display: none;
+    visibility: hidden;
+    opacity: 0;
+    transition: all 400ms ease-in-out;
+
+    &.show{
+        //display: block;
+        visibility: visible;
+        opacity: 1;
+    }
+
+    &__container{
+        position: relative;
+        top: 50%;
+        width: 50%;
+        margin: 0 auto;
+        background: $secondary-color;
+        border-radius: 10px;
+        padding: 2rem;
+        transform: translateY(-50%);
+        transition: all 400ms ease;
+    }
+
+    &__scroll{
+        position: relative;
+        display: block;
+        overflow-y: scroll;
+        overflow-x: hidden;
+        max-height: 80vh;
+    }
+
+    h3{
+        width: fit-content;
+        font-size: 2rem;
+        text-transform: uppercase;
+        color: $primary-color;
+        margin: 1.5rem auto;
+    }
+
+    &__info{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0.5rem;
+        margin-bottom: 1.5rem;
+
+        span {
+            font-size: 0.8rem;
+        }
+        a{
+            color: $primary-color;
+            text-decoration: underline;
+        }
+    }
+
+    &__image{
+
+        img{
+            border-radius: 10px;
+        }
+    }
+
+    &__close{
+        position: absolute;
+        top: -30px;
+        right: -50px;
+        font-size: 2.4rem;
+        cursor: pointer;
+    }
+}
+
 /* width */
 ::-webkit-scrollbar {
     width: 5px;
@@ -124,6 +205,12 @@ section{
             font-size: 2rem;
         }
     }
+
+    .popup{
+        &__container{
+            width: 70%;
+        }
+    }
 }
 
 /* ===================== MEDIA QUERIES (SMALL DEVICES) ================== */
@@ -151,6 +238,18 @@ section{
         }
 
         h2{
+            font-size: 1.8rem;
+        }
+    }
+
+    .popup{
+        &__container{
+            width: 85%;
+        }
+
+        &__close{
+            top: -40px;
+            right: 0px;
             font-size: 1.8rem;
         }
     }

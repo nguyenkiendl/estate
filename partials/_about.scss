@@ -1,5 +1,10 @@
 .about{
     background: $black-color;
+    
+    &__container{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
 
     &__left{
 
