@@ -1,0 +1,92 @@
+.contact{
+    background: $black-color;
+
+    &__container{
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        gap: 3rem;
+        width: 70%;
+
+        h3{
+            font-size: 1.8rem;
+            text-transform: uppercase;
+        }
+    }
+
+    &__info{
+        display: flex;
+        gap: 1.4rem;
+    }
+
+    &__icon{
+        i{
+            color: $primary-color;
+            font-size: 1.8rem;
+        }
+    }
+
+    .social{
+        display: flex;
+        gap: 1rem;
+        &__icon{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: $secondary-color;
+            border-radius: 100%;
+            width: 40px;
+            height: 40px;
+            padding: 10px;
+            &:hover{
+                background: $primary-color;
+            }
+        }
+    }
+
+    &__name{
+        display: flex;
+        gap: 1.5rem;
+    }
+
+    input,
+    textarea{
+        font-size: 1.1rem;
+        line-height: 1.5;
+        color: $white-color;
+        background: $secondary-color;
+        padding: 0.5rem 1.5rem;
+        border-radius: 2rem;
+        width: 100%;
+        margin-bottom: 1.5rem;
+        &:active,
+        &:focus{
+            border: 1px solid $primary-color;
+        }
+    }
+
+    ::placeholder{
+        text-transform: uppercase;
+        font-size: 0.8rem;
+    }
+
+
+}
+/* ===================== MEDIA QUERIES (MEDIUM DEVICES) ================== */
+@media screen and (max-width: 1024px) {
+    .contact{
+
+        &__container{
+            width: $container-md;
+        }
+    }
+}
+
+/* ===================== MEDIA QUERIES (SMALL DEVICES) ================== */
+@media screen and (max-width: 768px) {
+    .contact{
+
+        &__container{
+            grid-template-columns: 1fr;
+        }
+    }
+}

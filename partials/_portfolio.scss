@@ -4,44 +4,6 @@
         width: 70%;
     }
 
-    &__title{
-        position: relative;
-        width: fit-content;
-        height: 180px;
-        margin: 0 auto;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        font-family: 'Poppins', sans-serif;
-        
-
-        span{
-            left: 0;
-            top: 0;
-            font-size: 7rem;
-            font-weight: bold;
-            text-transform: uppercase;
-            line-height: 1;
-            color: $secondary-color;
-        }
-
-        h2{
-            position: absolute;
-            z-index: 1;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: $white-color;
-            font-size: 3rem;
-            text-transform: uppercase;
-            
-            strong{
-                color: $primary-color;
-                margin-left: 10px;
-            }
-        }
-    }
-
     &__control{
         display: flex;
         gap: 1.5rem;
@@ -241,16 +203,6 @@
 /* ===================== MEDIA QUERIES (SMALL DEVICES) ================== */
 @media screen and (max-width: 768px) {
     .portfolio{
-        &__title{
-            height: 120px;
-            span{
-                font-size: 4rem;
-            }
-
-            h2{
-                font-size: 1.8rem;
-            }
-        }
 
         &__items{
             flex-direction: column;
